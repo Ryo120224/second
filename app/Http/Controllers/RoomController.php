@@ -27,8 +27,6 @@ class RoomController extends Controller
         $room->fill($input)->save();
         return redirect('/rooms/' . $room->id);
     }
-    public function pusher(){
-        return 'chat';
-    }
+
 
 }
