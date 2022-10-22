@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,13 +19,20 @@ use App\Http\Controllers\RoomController;
 // });
 Route::get('/rooms',[RoomController::class,'room']);
 
-Route::get('/', function() {
-    return view('rooms/index');
-});
+// Route::get('/', function() {
+//     return view('rooms/index');
+// });
+Route::get('/',[RoomController::class,'index']);
 Route::get('/rooms/create', [RoomController::class, 'create']);
 Route::post('/rooms', [RoomController::class, 'store']);
 Route::get('/test', function() {
     return view('app');
 });
- Route::get('/chat', [RoomController::class, 'pusher']);
+// Route::get('/chat', function(){
+//     return view('pusher');
+// });
+Route::get('/chat', [CommentController::class, 'pusher']);
+Route::get('/messages', [CommentController::class, 'fetchMessages']);
+Route::post('/messages', [CommentController::class, 'sendMessage']);
+
 ?>
