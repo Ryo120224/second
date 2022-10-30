@@ -12,9 +12,19 @@ class RoomController extends Controller
         return view('rooms/index')->with(['rooms' => $room->getPaginateByLimit()]);  
     }
 
-    public function show(Room $room)
+    public function entrance(Room $room)
     {
-        return view('rooms/show')->with(['room' => $room]);
+        
+        return view('rooms/entrance')->with(['room' => $room]);
+    }
+    public function enter(RoomRequest $request,Room $room,$wpass)
+    {
+        $pass=$room->password;
+        if($wpass==$pass){
+            return redirect('/play/'. $room->id);
+        }else{
+            return redirect('/rooms/'.$room->id);
+        }
     }
         public function create()
     {
@@ -26,7 +36,7 @@ class RoomController extends Controller
         $input = $request['room'];
         $room->fill($input)->save();
         return redirect('/rooms/' . $room->id);
+        //return redirect('/rooms');
     }
-
 
 }

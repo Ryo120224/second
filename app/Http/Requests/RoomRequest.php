@@ -18,7 +18,7 @@ class RoomRequest extends FormRequest
         return [
             'room.title' => 'required|string|max:100',
             'room.password' => 'required|string|max:100',
-            
+            //'wroten.password' => 'required|string|max100',
         ];
     }
 }

@@ -1,14 +1,6 @@
 import './bootstrap';
-import { createApp, ref } from 'vue/dist/vue.esm-bundler';
 
-createApp({
-    setup() {
+import { createApp } from 'vue/dist/vue.esm-bundler';
+import Chat from './chat/Chat.vue'
 
-        const greeting = ref('おはよ！');
-
-        return {
-            greeting,
-        }
-
-    },
-}).mount('#app');
+createApp(Chat).mount('#chat');
