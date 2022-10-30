@@ -17,7 +17,7 @@ use App\Http\Controllers\CommentController;
 // Route::get('/', function () {
     // return view('welcome');
 // });
-Route::get('/rooms',[RoomController::class,'room']);
+//Route::get('/rooms',[RoomController::class,'room']);
 
 // Route::get('/', function() {
 //     return view('rooms/index');
@@ -25,13 +25,15 @@ Route::get('/rooms',[RoomController::class,'room']);
 Route::get('/',[RoomController::class,'index']);
 Route::get('/rooms/create', [RoomController::class, 'create']);
 Route::post('/rooms', [RoomController::class, 'store']);
+Route::get('/rooms/{room}',[RoomController::class,'entrance']);
+Route::post('/rooms/enter',[RoomController::class,'enter']);
 Route::get('/test', function() {
     return view('app');
 });
 // Route::get('/chat', function(){
 //     return view('pusher');
 // });
-Route::get('/chat', [CommentController::class, 'pusher']);
+Route::get('/play/{room}', [CommentController::class, 'pusher']);
 Route::get('/messages', [CommentController::class, 'fetchMessages']);
 Route::post('/messages', [CommentController::class, 'sendMessage']);
 

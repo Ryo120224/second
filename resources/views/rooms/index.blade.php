@@ -12,7 +12,9 @@
         <div class='rooms'>
             @foreach ($rooms as $room)
                 <div class='room'>
-                    <h2 class='title'>{{ $room->title }}</h2>
+                    <h2 class='title'>
+                        <a href="/rooms/{{$room->id}}">{{ $room->title }}</a>
+                        </h2>
                     <p class='pasward'>{{ $room->password }}</p>
                 </div>
             @endforeach

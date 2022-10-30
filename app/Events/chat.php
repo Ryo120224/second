@@ -35,6 +35,6 @@ class chat implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat_test');
+        return new Channel('chat_test');
     }
 }
