@@ -32,7 +32,7 @@
     const addMessage = async (message) => {
         messages.value = createNewMessage({
             body: message.message,
-            user_name: "testさん"
+            user_name: message.name
         });
         const res = await axios.post("/messages", message);
     };

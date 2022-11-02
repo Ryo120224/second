@@ -26,7 +26,7 @@ Route::get('/',[RoomController::class,'index']);
 Route::get('/rooms/create', [RoomController::class, 'create']);
 Route::post('/rooms', [RoomController::class, 'store']);
 Route::get('/rooms/{room}',[RoomController::class,'entrance']);
-Route::post('/rooms/enter',[RoomController::class,'enter']);
+Route::post('/enter/{room}',[RoomController::class,'enter']);
 Route::get('/test', function() {
     return view('app');
 });
@@ -34,7 +34,12 @@ Route::get('/test', function() {
 //     return view('pusher');
 // });
 Route::get('/play/{room}', [CommentController::class, 'pusher']);
-Route::get('/messages', [CommentController::class, 'fetchMessages']);
-Route::post('/messages', [CommentController::class, 'sendMessage']);
+Route::get('/messages/{room}', [CommentController::class, 'fetchMessages']);
+Route::post('/messages/{room}', [CommentController::class, 'sendMessage']);
 
+Route::get('/play/create/{room}',[CharacterController::class, 'characreate']);
+Route::post('/character/{room}',[CharacterController::class, 'cstore']);
+
+Route::get('/status/create/{room}/{character}',[StatusController::class, 'statuscreate']);
+Route::post('/status/{room}/{character}',[StatusController::class, 'sstore']);
 ?>

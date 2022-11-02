@@ -1,0 +1,13 @@
+body{
+    height: 100%;
+    margin:0;
+}
+.play{
+    display: flex;
+}
+.play>.characters{
+    width:50%;
+}
+.play>.chat{
+    width:50%;
+}

@@ -14,12 +14,12 @@
                 </h2>
             </div>
         </div>
-        <form action="enter" method="POST">
+        <form action="/enter/{{$room->id}}" method="POST">
             @csrf
             <div class="test">
                 <h3>password</h3>
                 <input type="text" name="wpass" placeholder="please write password!!"value="{{old('wpass')}}"/>
-                <p class="password__error" style="color:red">{{ $errors->first('wroten.password') }}</p>
+                <p class="password__error" style="color:red">{{ $errors->first('wpass') }}</p>
             </div>
             <input type="submit" value="enter"/>
         </form>
